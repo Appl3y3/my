@@ -49,6 +49,7 @@ public class Reptile {
         for (int i = 1; i <= totalPage; i++) {
             Document catalogDocument = ReptileUtils.getDocument(getUrl(template.get("catalogUrlTemplate"), template.get("mainUrl"), i));
             parseElementsToMapAdvance(catalogDocument, i);
+//            parseElementsToMap(catalogDocument, i);
         }
 
     }

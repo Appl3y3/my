@@ -1,5 +1,6 @@
 package com.appleye.handler;
 
+import com.appleye.utils.Decoder;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -16,7 +17,6 @@ public class DetailDocumentParser implements DocumentParser{
     @Override
     public Map<String, String> set(Map<String, String> map, Document document) {
         Elements content = document.getElementById("content").select("p");
-        String p;
         for (Element element : content) {
             getDetail(map, element);
         }
@@ -24,15 +24,28 @@ public class DetailDocumentParser implements DocumentParser{
     }
 
     public static void getDetail(Map<String, String> map, Element element) {
-        String p;
-        p = element.text();
-        if (p.contains("】") && !p.endsWith("：")) {
-            String[] split = p.split("：");
+        String script = element.select("script").toString();
+
+        if (script.contains("44CR77ya") && !script.contains("44CQ5b2x54mH6aKE6KeI44CR77ya")) {
+            String text = element.text();
+            String secret = Decoder.parseTitle(script.substring(script.indexOf("d(") + 3, script.indexOf("))") - 1));
+            String s = secret + text;
+            String[] split = s.split("：");
             map.put(split[0].replace("【分辨率】", "resolution")
                     .replace("【影片时长】", "minutes")
                     .replace("【发布时间】", "publishDate")
                     .replace("【影片格式】", "format")
                     .replace("【影片大小】", "size"), split[1].replace("分钟", "").replace(" MB", ""));
         }
+//        String p;
+//        p = element.text();
+//        if (p.contains("】") && !p.endsWith("：")) {
+//            String[] split = p.split("：");
+//            map.put(split[0].replace("【分辨率】", "resolution")
+//                    .replace("【影片时长】", "minutes")
+//                    .replace("【发布时间】", "publishDate")
+//                    .replace("【影片格式】", "format")
+//                    .replace("【影片大小】", "size"), split[1].replace("分钟", "").replace(" MB", ""));
+//        }
     }
 }
