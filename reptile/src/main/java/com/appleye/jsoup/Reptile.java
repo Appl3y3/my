@@ -49,7 +49,6 @@ public class Reptile {
         for (int i = 1; i <= totalPage; i++) {
             Document catalogDocument = ReptileUtils.getDocument(getUrl(template.get("catalogUrlTemplate"), template.get("mainUrl"), i));
             parseElementsToMapAdvance(catalogDocument, i);
-//            parseElementsToMap(catalogDocument, i);
         }
 
     }
@@ -163,17 +162,13 @@ public class Reptile {
                 , map.get("resolution"), map.get("magnet"), map.get("imagesPath"));
 
 
-        // 数据来源movieId重复时，更新existMovieList再次尝试
-        boolean errFlag = false;
-        do {
-            try {
-                DBUtils.insert(conn, sql);
-            } catch (SQLException e) {
-                errFlag = true;
-                logger.warn(String.format("重复插入%s",sql));
-                existMovieList = getExistMovieList(conn);
-            }
-        } while (errFlag);
+        // 数据来源movieId重复时，更新existMovieList
+        try {
+            DBUtils.insert(conn, sql);
+        } catch (SQLException e) {
+            logger.warn(String.format("重复插入%s",sql));
+            existMovieList = getExistMovieList(conn);
+        }
 
     }
 
