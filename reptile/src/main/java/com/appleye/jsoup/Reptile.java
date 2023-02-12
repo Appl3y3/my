@@ -34,7 +34,8 @@ public class Reptile {
     static int duplicate;
 
     static {
-        template.put("mainUrl", "https://138290.xyz");
+//        template.put("mainUrl", "https://138290.xyz");
+        template.put("mainUrl", "https://140392.xyz/");
         template.put("catalogUrlTemplate", "%s/list.php?class=guochan&page=%d");
         template.put("movieUrlTemplate", "%s/movie.php?class=guochan&id=%s");
         template.put("magnetUrlTemplate", "%s/download.php?class=guochan&id=%s");
