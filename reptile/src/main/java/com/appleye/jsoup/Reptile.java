@@ -19,7 +19,7 @@ public class Reptile {
 
     static Logger logger = LoggerFactory.getLogger(Reptile.class);
 
-    static Properties properties = ConfigReader.getProperties("config.properties");
+    static Properties properties = ConfigReader.getProperties("dataSources.properties");
     static String DRIVER = properties.getProperty("DRIVER");
     static String URL = properties.getProperty("URL");
     static String USERNAME = properties.getProperty("USERNAME");
