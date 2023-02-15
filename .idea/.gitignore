@@ -7,3 +7,4 @@
 /dataSources/
 /dataSources.local.xml
 ../reptile/src/main/resources/dataSources.properties
+../reptile/src/main/resources/config.properties

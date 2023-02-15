@@ -19,11 +19,13 @@ public class Reptile {
 
     static Logger logger = LoggerFactory.getLogger(Reptile.class);
 
-    static Properties properties = ConfigReader.getProperties("dataSources.properties");
-    static String DRIVER = properties.getProperty("DRIVER");
-    static String URL = properties.getProperty("URL");
-    static String USERNAME = properties.getProperty("USERNAME");
-    static String PASSWORD = properties.getProperty("PASSWORD");
+    static Properties properties = ConfigReader.getProperties("config.properties");
+
+    static Properties dbProperties = ConfigReader.getProperties("dataSources.properties");
+    static String DRIVER = dbProperties.getProperty("DRIVER");
+    static String URL = dbProperties.getProperty("URL");
+    static String USERNAME = dbProperties.getProperty("USERNAME");
+    static String PASSWORD = dbProperties.getProperty("PASSWORD");
     static HashMap<String, String> template = new HashMap<>();
 
     static List<String> existMovieList;
@@ -34,8 +36,7 @@ public class Reptile {
     static int duplicate;
 
     static {
-//        template.put("mainUrl", "https://138290.xyz");
-        template.put("mainUrl", "https://140392.xyz/");
+        template.put("mainUrl", properties.getProperty("mainUrl"));
         template.put("catalogUrlTemplate", "%s/list.php?class=guochan&page=%d");
         template.put("movieUrlTemplate", "%s/movie.php?class=guochan&id=%s");
         template.put("magnetUrlTemplate", "%s/download.php?class=guochan&id=%s");
