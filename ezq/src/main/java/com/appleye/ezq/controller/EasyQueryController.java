@@ -4,7 +4,7 @@ import com.appleye.ezq.constant.ResultConstant;
 import com.appleye.ezq.entity.ExecutorParameter;
 import com.appleye.ezq.entity.Grid;
 import com.appleye.ezq.entity.Result;
-import com.appleye.ezq.service.EasyQueryService;
+import com.appleye.ezq.service.EzqService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +24,7 @@ import java.util.Map;
 @CrossOrigin
 public class EasyQueryController {
     @Autowired
-    private EasyQueryService easyQueryService;
+    private EzqService easyQueryService;
 
 
     @PostMapping("/getExecuteResult")

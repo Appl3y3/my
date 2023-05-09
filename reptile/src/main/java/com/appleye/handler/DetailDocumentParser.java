@@ -5,7 +5,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -37,15 +36,5 @@ public class DetailDocumentParser implements DocumentParser{
                     .replace("【影片格式】", "format")
                     .replace("【影片大小】", "size"), split[1].replace("分钟", "").replace(" MB", ""));
         }
-//        String p;
-//        p = element.text();
-//        if (p.contains("】") && !p.endsWith("：")) {
-//            String[] split = p.split("：");
-//            map.put(split[0].replace("【分辨率】", "resolution")
-//                    .replace("【影片时长】", "minutes")
-//                    .replace("【发布时间】", "publishDate")
-//                    .replace("【影片格式】", "format")
-//                    .replace("【影片大小】", "size"), split[1].replace("分钟", "").replace(" MB", ""));
-//        }
     }
 }
