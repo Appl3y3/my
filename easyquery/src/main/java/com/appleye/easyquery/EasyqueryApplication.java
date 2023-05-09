@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class EasyqueryApplication {
 
     public static void main(String[] args) {
+        System.out.println("测试主分支");
         SpringApplication.run(EasyqueryApplication.class, args);
     }
 
