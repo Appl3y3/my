@@ -2,7 +2,7 @@ package com.appleye.ezq.service.serviceImpl;
 
 import com.appleye.ezq.constant.DBType;
 import com.appleye.ezq.entity.*;
-import com.appleye.ezq.service.EzqService;
+import com.appleye.ezq.service.EasyQueryService;
 import com.appleye.ezq.util.Paging;
 import com.appleye.ezq.util.PagingFactory;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ import java.util.List;
  * @CreateTime: 2023-04-23 23:23
  **/
 @Service
-public class EzqQueryServiceImpl implements EzqService {
+public class EasyQueryServiceImpl implements EasyQueryService {
     @Override
     public Grid getExecuteResult(ExecutorParameter ep) {
         //sql处理:①去除空格、②行尾分号
